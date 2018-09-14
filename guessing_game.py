@@ -8,32 +8,37 @@ Project 1 - Number Guessing Game
 import random
 import math
 
-attempts = 0
-random_number = math.ceil(random.random() * 100)
-
-print(random_number)
+name = input("Welcome to the number guessing game! Please enter your name: ")
 
 
 def start_game():
-    """Psuedo-code Hints
+    random_number = math.ceil(random.random() * 100)
+    user_answer = int(input("Okay, {}, I'm thinking of a number between 1 and 100. Take your shot: ".format(name)))
+    attempts = 1
 
-    When the program starts, we want to:
-    ------------------------------------
-    1. Display an intro/welcome message to the player.
-    2. Store a random number as the answer/solution.
-    3. Continuously prompt the player for a guess.
-      a. If the guess greater than the solution, display to the player "It's lower".
-      b. If the guess is less than the solution, display to the player "It's higher".
-    
-    4. Once the guess is correct, stop looping, inform the user they "Got it"
-        and show how many attempts it took them to get the correct number.
-    5. Let the player know the game is ending, or something that indicates the game is over.
-    
-    ( You can add more features/enhancements if you'd like to. )
-    """
-    # write your code inside this function.
+    while user_answer != random_number:
+      if user_answer < random_number:
+        user_answer = int(input("It's higher, guess again: "))
+        attempts += 1
+      elif user_answer > random_number:
+        user_answer = int(input("It's lower, guess again: "))
+        attempts += 1
+
+    print("You got it! It took you {} tries to figure it out!".format(attempts))
+    play_again()
+
+
+def play_again():
+  user_response = input("Would you like to play again? (Enter yes/no) ")
+
+  if user_response.lower() == 'yes':
+      start_game()
+  elif user_response.lower() == 'no':
+      print("Thanks for playing, {}. I'll be here if you want to play again!".format(name))
 
 
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
     start_game()
+
+
