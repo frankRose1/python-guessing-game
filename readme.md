@@ -1,0 +1,2 @@
+# Python Number Guessing Game
+My first python app! Its a number guessing game where a user is prompted for a guess until they can match the randomly generated number. If a guess is too low, the user is told "Too low, guess again" If a guess is too high, a user is told "Too high, guess again". When a user guesses correctly they are given the option to either start the game again or exit.
